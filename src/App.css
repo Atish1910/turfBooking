@@ -1,0 +1,197 @@
+@import url(https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
+
+:root {
+  --purple: #4b1d3a;
+  --light: #f1f3fa;
+  --white: #fff;
+  --dark: #1c1c1c;
+  --yellow: #ffb81c;
+  --red: #c10016;
+  --orange: #ff6900;
+  --grey: #f3f2f4;
+  --hfont: Mukta, sans-serif;
+  --font_01: Roboto, sans-serif;
+}
+
+body {
+  font-size: 12px !important;
+  font-family: var(--font_01);
+  background-color: #f1f1f154 !important;
+  font-display: swap;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--hfont);
+}
+
+/* All Text */
+.text-yellow {
+  color: var(--yellow) !important;
+}
+
+/* All bg */
+.bg-yellow {
+  background-color: var(--yellow);
+}
+
+.bg-dark {
+  background: var(--dark) !important;
+}
+
+.bg-grey {
+  background: var(--grey) !important;
+}
+
+.btn-01 {
+  font-size: 14px !important;
+  background-color: var(--white) !important;
+  color: var(--dark) !important;
+  border: 1px solid var(--dark) !important;
+}
+
+.btn-01:hover {
+  background-color: #fff !important;
+  color: var(--bs-primary) !important;
+  border: 1px solid var(--bs-primary) !important;
+}
+
+/* Navbar css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background: #1f2937; */
+  padding: 1rem 1.5rem;
+  color: white;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-links a.active {
+  font-weight: bold;
+  color: #facc15;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  height: 3px;
+  width: 25px;
+  background: rgb(0, 0, 0);
+  margin: 4px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    flex-direction: column;
+    background: #1f2937;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+/*  left-navbar ///////////////////////////////// */
+
+.left-navbar .order-id {
+  font-size: 12px !important;
+  font-weight: bold !important;
+}
+
+.left-navbar .order-company {
+  font-size: 12px !important;
+}
+.left-navbar .badge {
+  font-size: 10px !important;
+}
+.left-navbar .bi-arrow-right {
+  font-size: 12px !important;
+}
+
+/*  Order list ///////////////////////////////// */
+.order-details .order-id {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.order-details .badge {
+  font-size: 10px;
+}
+
+.order-details .company {
+  font-size: 12px;
+}
+
+.order-details .contact {
+  font-size: 12px;
+  text-decoration: none;
+}
+.order-details .key,
+.order-details .value {
+  font-size: 12px;
+}
+
+.passport-img {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.personal-info a {
+  text-decoration: none;
+  color: black;
+  padding-bottom: 10px;
+}
+.bg-active {
+  background-color: var(--grey) !important;
+}
+.order-01 .card-header {
+  font-size: 12px !important;
+  background-color: #0d6efd24 !important;
+}
+.order-01 .card-title {
+  font-size: 13px !important;
+}
+/* For Desktop css */
+@media (min-width: 991px) {
+}
