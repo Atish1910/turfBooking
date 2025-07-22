@@ -1,0 +1,9 @@
+.logo {
+  height: 50px;
+  /* width: 100%; */
+  object-fit: contain;
+}
+
+.btn-001 {
+  /* font-size: 10px !important; */
+}
