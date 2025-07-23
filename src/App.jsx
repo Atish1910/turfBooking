@@ -1,7 +1,17 @@
+import { useEffect, useState } from "react";
 import logo from "../src/assets/img/logo.jpeg";
 import "./App.css";
+import Login from "./components/login/Login";
 const App = () => {
-  return (
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const AdminData = localStorage.getItem("turfAdmin");
+    if (AdminData) setIsLoggedIn(true);
+    // console.log(isLoggedIn);
+  }, []);
+
+  return isLoggedIn ? (
     <>
       <section>
         <div className="container py-3 border text-center">
@@ -153,6 +163,12 @@ const App = () => {
         </div>
       </section>
     </>
+  ) : (
+    <Login
+      logo={logo}
+      onSuccess={() => setIsLoggedIn(true)}
+      isLoggedIn={isLoggedIn}
+    ></Login>
   );
 };
 
