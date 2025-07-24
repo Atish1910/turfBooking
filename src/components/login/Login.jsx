@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-const Login = ({ logo, onSuccess, isLoggedIn }) => {
+const Login = () => {
   const [isRegister, setIsRegister] = useState(true);
   const [form, setForm] = useState({
     email: "",
@@ -8,14 +8,15 @@ const Login = ({ logo, onSuccess, isLoggedIn }) => {
     confirmPassword: "",
   });
 
-  const handleSubmit = (e) => {
-    debugger;
+  const handleForm = (e) => {
     e.preventDefault();
+    debugger;
     if (isRegister) {
       if (form.password !== form.confirmPassword) {
-        alert("Passwords Do not match");
+        console.log("password is Not same");
         return;
       }
+      console.log("password is same");
       localStorage.setItem(
         "turfAdmin",
         JSON.stringify({
@@ -24,86 +25,79 @@ const Login = ({ logo, onSuccess, isLoggedIn }) => {
           confirmPassword: form.confirmPassword,
         })
       );
-      localStorage.removeItem("turfAdmin");
-      console.log(isLoggedIn);
-      onSuccess();
-      alert("Register Successful!");
+      console.log(form);
+      alert("Register successful");
     } else {
-      const saved = JSON.parse(localStorage.getItem("turfAdmin"));
-      if (saved?.email === form.email && saved.password === form.password) {
-        onSuccess();
+      const savedData = JSON.parse(localStorage.getItem("turfAdmin"));
+      if (savedData?.email === form.email && password === form.password) {
+        alert("Logged in successfully");
       } else {
-        alert("invalid password");
+        alert("wrong credentials");
       }
     }
   };
 
   return (
     <>
-      <div className="container min-vh-100 d-flex justify-content-center align-items-center bg-light">
-        <div className="row card shadow-sm p-4 border">
-          <div className="text-center">
-            <img src={logo} alt="" className="logo mb-3" />
-            <h4>Turf Manager</h4>
-            <p>Admin Portal</p>
-          </div>
-          <div className="">
-            <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                placeholder="please enter your Email"
-                className="form-control mb-3"
-                value={form.email}
-                onChange={(e) =>
-                  setForm({
-                    ...form,
-                    email: e.target.value,
-                  })
-                }
-              />
-              <input
-                type="password"
-                placeholder="please enter your password"
-                className="form-control mb-3"
-                value={form.password}
-                onChange={(e) =>
-                  setForm({
-                    ...form,
-                    password: e.target.value,
-                  })
-                }
-              />
-              {isRegister && (
+      <section className="vh-100 ">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-6 mt-5 p-3 border text-center">
+              <form action="" onSubmit={handleForm}>
                 <input
-                  type="password"
-                  placeholder="please enter your password"
+                  type="text"
+                  placeholder="enter your Email"
                   className="form-control mb-3"
-                  value={form.confirmPassword}
+                  value={form.email}
                   onChange={(e) =>
                     setForm({
                       ...form,
-                      confirmPassword: e.target.value,
+                      email: e.target.value,
                     })
                   }
                 />
-              )}
-              <button className="btn btn-success w-100" type="submit">
-                {isRegister ? "Register" : "Login"}
-              </button>
-            </form>
-          </div>
-          <div className="text-center mt-3">
-            <button
-              className="btn btn-link"
-              onClick={() => setIsRegister(!isRegister)}
-            >
-              {isRegister
-                ? "Already have an account? Login"
-                : "No account? Register"}
-            </button>
+                <input
+                  type="password"
+                  placeholder="enter your Password"
+                  className="form-control mb-3"
+                  value={form.password}
+                  onChange={(e) =>
+                    setForm({
+                      ...form,
+                      password: e.target.value,
+                    })
+                  }
+                />
+                {isRegister && (
+                  <input
+                    type="password"
+                    placeholder="enter You Password Again"
+                    className="form-control mb-3"
+                    value={form.confirmPassword}
+                    onChange={(e) =>
+                      setForm({
+                        ...form,
+                        confirmPassword: e.target.value,
+                      })
+                    }
+                  />
+                )}
+                <button className="btn btn-success btn-sm w-100" type="submit">
+                  {isRegister ? "Register Here" : "Login"}
+                </button>
+              </form>
+              <div className="">
+                <button
+                  className="btn btn-link"
+                  onClick={() => setIsRegister(!isRegister)}
+                >
+                  {isRegister ? "Go To Login" : " Go To Register"}
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };
